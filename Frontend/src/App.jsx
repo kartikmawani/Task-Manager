@@ -1,14 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+ 
+import {Routes,Route} from 'react-router-dom'
+import Home from '../pages/Home.jsx'
+import Completed from '../pages/Completed.jsx'
+import Personaltask from '../pages/Personaltask.jsx'
+import Friendtask from '../pages/Friendtask.jsx'
+ 
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  
 
   return (
     <>
-       <h1>Setup</h1>
+    <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/Company-tasks" element={<Completed/>}/>
+      <Route path="/Personal-tasks" element={<Personaltask/>}/>
+       <Route path="/Friend-tasks" element={<Friendtask/>}/>
+    </Routes>
+      
     </>
   )
 }
