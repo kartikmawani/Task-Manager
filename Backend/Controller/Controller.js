@@ -29,3 +29,24 @@ export const createTask=async(req,res)=>{
          res.status(500).json("Server is incapable")
       }
 }
+
+export const DeleteTask=async(req,res)=>{
+   try
+   {
+   const {id}=req.params;
+   const DeletedTask=await TaskGenerator.findByIdAndDelete(id)
+   if(!DeletedTask){
+      return res.status(400).json({message:"Task not found"})
+   }
+   res.status(200).json({message:"Task deleted succesfully",
+      task:DeletedTask
+      })
+
+}
+   catch(error){
+      console.error(error)
+      res.status(500).json({message:"Server error  Unable to delete task"})
+
+   }
+
+}
