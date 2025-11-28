@@ -50,3 +50,28 @@ export const DeleteTask=async(req,res)=>{
    }
 
 }
+
+export const editController=async(req,res)=>{
+   const {id}=req.params;
+   const {username,description,Type,Status}=req.body;
+   try{
+       const UpdatedUser=await TaskGenerator.findByIdAndUpdate(id,{
+         username:username,
+         description:description,
+         Type:Type,
+         Status:Status,
+       },{
+         new:true
+       })
+       if(!UpdatedUser){
+         return res.status(404).json({messge:"Task not found"})
+       }
+       res.status(200).json(UpdatedUser)
+       console.log("User Updated")
+
+   }
+   catch(error){
+      console.error(error)
+      res.status(500).json({message:"error in updating data"})
+   }
+}
