@@ -6,7 +6,7 @@ export const createTask=async(req,res)=>{
       const  { username, description, Type,Status } = req.body; 
       if(!username||!description||!Type||!Status){
          return res.status(400).json({
-            message:"Please fill all the field"
+            message:"Please fill required   field"
          })
       } 
        
