@@ -4,7 +4,7 @@ dotenv.config()
 import cors from 'cors'
 
 import express from "express"
-import Routes from "./Router/Routes.js"
+import Routes from "./Router/Route.js"
 const app=express();
 
 DatabaseConnected();
